@@ -10,6 +10,9 @@ export default function Navigation() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
+                        <Link to="/usuario" className="nav-link">Usuarios</Link>
+                        <Link to="/producto" className="nav-link">Producto</Link>
+                        <Link to="/bodega" className="nav-link">Bodega</Link>
                         <Link to="/login" className="nav-link">Login</Link>
                         <Link to="/register" className="nav-link">Registro</Link>
                     </Nav>
