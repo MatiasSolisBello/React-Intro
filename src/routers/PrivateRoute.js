@@ -1,15 +1,23 @@
 import React from 'react'
-import { Navigate, Outlet, Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import useAuth from '../auth/useAuth';
+import routes from '../helpers/routes';
 
-export default function PrivateRoute({hasRole: role, ...rest}) {
-    const{ user } = useAuth();
+export default function PrivateRoute({ hasRole: role, ...rest }) {
+    const { hasRole, isLogged } = useAuth();
 
-    console.log('PESTAÑA PRIVADA')
-    console.log('DATA USER', user);
+    if(!isLogged()){
+        console.log('RUTA PRIVADA: ', isLogged)
+        return <Redirect to={routes.login} />
+    }
     
-    return user ? <Outlet />  : <Navigate to="/login" />
+    if(role && !hasRole(role)){
+        //console.log('No puedes, tu rol es: ', role)
+        return <Redirect to={routes.home} />
+    }
 
+    
+    
     return (
         <Route {...rest} />
     )

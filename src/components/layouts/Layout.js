@@ -1,6 +1,6 @@
 import Navigation from '../Navigation'
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
     return (
         <>
             <Navigation />

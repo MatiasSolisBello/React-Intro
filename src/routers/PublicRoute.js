@@ -1,14 +1,18 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Redirect, Route } from 'react-router';
 import useAuth from '../auth/useAuth';
+import routes from '../helpers/routes';
 
-export default function PublicRoute() {
-    const{ user } = useAuth;
+export default function PublicRoute({...rest}) {
+    const { isLogged } = useAuth();
 
-    //return user ? <Outlet />  : <Navigate to="/bodega" />;
+    console.log('LOGUEADO: ',isLogged)
 
-    if(user) {
-        console.log('USER DATA: ',user)
-        return <Navigate to="/bodega" />;
+    if(isLogged()){
+        return <Redirect to={routes.producto} />
     }
+    
+    return (
+        <Route {...rest} />
+    )
 }
