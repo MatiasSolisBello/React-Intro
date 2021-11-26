@@ -29,7 +29,8 @@ export default function Navigation() {
                         <Nav.Link as={NavLink} to={routes.bodega}>Bodega</Nav.Link>
                         <Nav.Link as={NavLink} to={routes.login}>Login</Nav.Link>
                         <Nav.Link as={NavLink} to={routes.register}>Registro</Nav.Link>
-                        <Nav.Link to={routes.register} onClick={logout}>Cerrar Sesion</Nav.Link>
+                        <Nav.Link as={NavLink} to={routes.account}>Cuenta</Nav.Link>
+                        <Nav.Link to={routes.login} onClick={logout}>Cerrar Sesion</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

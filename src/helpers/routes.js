@@ -4,6 +4,7 @@ const routes = {
     register: "/register",
     producto: "/producto",
     bodega: "/bodega",
+    account: "/account",
     
 
     admin: {
