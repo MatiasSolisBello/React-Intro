@@ -24,7 +24,7 @@ export default function Navigation() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link as={NavLink} to={routes.admin.usuario}>Usuarios</Nav.Link>
+                        <Nav.Link as={NavLink} to={routes.usuario}>Usuarios</Nav.Link>
                         <Nav.Link as={NavLink} to={routes.producto}>Producto</Nav.Link>
                         <Nav.Link as={NavLink} to={routes.bodega}>Bodega</Nav.Link>
                         <Nav.Link as={NavLink} to={routes.login}>Login</Nav.Link>

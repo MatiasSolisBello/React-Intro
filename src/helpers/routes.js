@@ -5,13 +5,10 @@ const routes = {
     producto: "/producto",
     bodega: "/bodega",
     account: "/account",
+    // usuario = (id) => (id ? '/usuario/:${id}': 'usuario/id',
+    usuario: "/admin/usuario"
     
 
-    admin: {
-        usuario: "/admin/usuario",
-    }
-
-    // usuario = (id) => (id ? '/usuario/:${id}': 'usuario/id',
 };
 
 export default routes;

@@ -1,5 +1,4 @@
-
-/* import * as yup from 'yup';
+import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup'
 
 const schema = yup.object().shape({
@@ -9,4 +8,4 @@ const schema = yup.object().shape({
         .min(6, "La contraseña debe tener al menos 6 carácteres")
 })
 
-export default yupResolver(schema) */
+export default yupResolver(schema)

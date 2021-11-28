@@ -9,7 +9,12 @@ export default function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
 
     const login = (userCredentials, fromLocation) => {
-        setUser({ id: 1, nombre: 'John', correo: 'john@email.com',  rol: roles.regular });
+        setUser({ 
+            id: 1, 
+            nombre: 'John', 
+            correo: 'john@email.com',  
+            rol: roles.regular
+        });
 
         if(fromLocation){
             history.push(fromLocation);
@@ -18,7 +23,7 @@ export default function AuthProvider({ children }) {
     const logout = () => setUser(null);
 
     const isLogged = () => !!user;
-    const hasRole = (role) => user?.role === role;
+    const hasRole = (role) => user?.rol === role;
 
     const contextValue = {
         user,

@@ -13,11 +13,8 @@ export default function ChangePasswordModal({ isOpen, close }) {
         resolver: changePasswordResolver 
     });
 
-    console.log('ChangePasswordModal: ', register )
-
     const onSubmit = (formData) => {
-        console.log(formData);
-        //alert("Cambiando contraseña")
+        alert("Cambiando contraseña")
     }
 
     useEffect(() => {

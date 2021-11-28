@@ -7,9 +7,8 @@ export default function HomePage() {
         <Container>
             <Row className="mt-5">
                 <Col xs={{ span: 12 }} md={{ span: 6 }} className="text-center">
-                    <h2>Bienvenid@ a Gestor de tareas</h2>
-                    <p>¡Aquí podrás gestionar tus proyectos!</p>
-                    <p>Marca tus tareas como terminadas, Agrega, elimina, o actualiza.</p>
+                    <h2>Bienvenid@ a Sistema Contable</h2>
+                    <p>¡Aquí podrás gestionar tus productos!</p>
                     <div>
                         <Link to={routes.login}>Ingresa</Link> o <Button as={Link} to={routes.register}
                             className="ml-1"

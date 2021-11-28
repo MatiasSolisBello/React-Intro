@@ -6,8 +6,6 @@ import routes from '../helpers/routes';
 export default function PublicRoute({...rest}) {
     const { isLogged } = useAuth();
 
-    console.log('LOGUEADO: ',isLogged)
-
     if(isLogged()){
         return <Redirect to={routes.producto} />
     }

@@ -15,22 +15,19 @@ import AccountPage from '../components/AccountPage'
 
 export default function AppRouter() {
     return (
-        //<Router>
-            //<Layout>
-                <Switch>
-                    <Route exact path={routes.home} component={HomePage} />
-                    <PublicRoute exact path={routes.login} component={LoginPage} />
-                    <PublicRoute exact path={routes.register} component={RegisterPage} />
-                    <Route exact path={routes.producto} component={ProductoPage} />
+        <Switch>
+            <Route exact path={routes.home} component={HomePage} />
+            <PublicRoute exact path={routes.login} component={LoginPage} />
+            <PublicRoute exact path={routes.register} component={RegisterPage} />
+            <Route exact path={routes.producto} component={ProductoPage} />
 
-                    <PrivateRoute exact path={routes.bodega} component={BodegaPage} />
-                    <PrivateRoute exact path={routes.account} component={AccountPage} />
-                    <PrivateRoute hasRole={roles.admin} exact path={routes.admin.usuario} component={UsuarioPage} />
+            <PrivateRoute exact path={routes.bodega} component={BodegaPage} />
+            <PrivateRoute exact path={routes.account} component={AccountPage} />
+            <PrivateRoute hasRole={roles.admin} exact path={routes.usuario} component={UsuarioPage} />
 
 
-                    <Route path="*" component={NotFoundPage} />
-                </Switch>
-            //</Layout>
-        //</Router>
+            <Route path="*" component={NotFoundPage} />
+        </Switch>
+
     )
 }

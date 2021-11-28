@@ -8,13 +8,19 @@ export default function PrivateRoute({ hasRole: role, ...rest }) {
     const { hasRole, isLogged } = useAuth();
 
     if (!isLogged()) {
-        console.log('RUTA PRIVADA: ', isLogged)
+        console.log('RUTA PRIVADA')
         return <Redirect to={routes.login} />
     }
 
     if (role && !hasRole(role)) {
-        //console.log('No puedes, tu rol es: ', role)
-        return <Redirect to={{ pathname: routes.login, state: { from: location } }} />
+        console.log('No puedes, tu rol es: ', role)
+        return <Redirect to={{
+            pathname: routes.login,
+            state: {
+                from: location
+            }
+        }}
+        />
     }
 
 

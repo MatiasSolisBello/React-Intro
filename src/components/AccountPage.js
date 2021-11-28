@@ -3,17 +3,17 @@ import useAuth from '../auth/useAuth';
 import DeleteModal from '../components/account/DeleteModal';
 import useModal from '../hook/useModal';
 import ChangePasswordModal from '../components/account/ChangePasswordModal';
-/*
-import EditModal from './components/EditModal';
-import ProfilePicModal from './components/ProfilePicModal'; */
+
+import EditModal from '../components/account/EditModal';
+/*import ProfilePicModal from './components/ProfilePicModal'; */
 
 
 export default function AccountPage() {
     const { user } = useAuth();
         const [isOpenDeleteModal, openDeleteModal, closeDeleteModal] = useModal();
         const [isOpenChangePasswordModal, openChangePasswordModal, closeChangePasswordModal] = useModal();
-         /*const [isOpenEditModal, openEditModal, closeEditModal] = useModal();
-        const [isOpenProfilePicModal, openProfilePicModal, closeProfilePicModal] = useModal(); */
+        const [isOpenEditModal, openEditModal, closeEditModal] = useModal();
+        /*const [isOpenProfilePicModal, openProfilePicModal, closeProfilePicModal] = useModal(); */
 
 
     return (
@@ -41,7 +41,7 @@ export default function AccountPage() {
                             <p className="text-center"><b>Rol: </b>{user.rol}</p>
 
                             <Button variant="warning"
-                            //onClick={openEditModal}
+                            onClick={openEditModal}
                             >
                                 Editar cuenta
                             </Button>
@@ -69,12 +69,13 @@ export default function AccountPage() {
             isOpen={isOpenChangePasswordModal}
             close={closeChangePasswordModal}
         />
-        {/*
+        
         <EditModal 
             isOpen={isOpenEditModal}
             close={closeEditModal}
             user={user}
         />
+        {/*
         <ProfilePicModal 
             isOpen={isOpenProfilePicModal}
             close={closeProfilePicModal}
