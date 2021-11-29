@@ -9,6 +9,8 @@ export default function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
 
     const login = (userCredentials, fromLocation) => {
+
+        //DATA USER
         setUser({ 
             id: 1, 
             nombre: 'John', 
@@ -20,7 +22,7 @@ export default function AuthProvider({ children }) {
             history.push(fromLocation);
         }
     }
-    const logout = () => setUser(null);
+    const logout = () =>  setUser(null);
 
     const isLogged = () => !!user;
     const hasRole = (role) => user?.rol === role;

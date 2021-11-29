@@ -5,7 +5,7 @@ import routes from '../helpers/routes';
 
 export default function PrivateRoute({ hasRole: role, ...rest }) {
     const location = useLocation();
-    const { hasRole, isLogged } = useAuth();
+    const { hasRole, isLogged, user } = useAuth();
 
     if (!isLogged()) {
         console.log('RUTA PRIVADA')
@@ -13,7 +13,7 @@ export default function PrivateRoute({ hasRole: role, ...rest }) {
     }
 
     if (role && !hasRole(role)) {
-        console.log('No puedes, tu rol es: ', role)
+        console.log('No puedes, tu rol es: ', user.rol)
         return <Redirect to={{
             pathname: routes.login,
             state: {
