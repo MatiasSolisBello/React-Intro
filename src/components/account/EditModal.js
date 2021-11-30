@@ -34,9 +34,9 @@ export default function EditModal({ isOpen, close, user }) {
 
 	useEffect(() => {
 		if(user) reset({
-			name: user.name,
-			email: user.email,
-			rol: user.role
+			name: user.nombre,
+			email: user.correo,
+			rol: user.rol
 		});
 	}, [user, reset])
 

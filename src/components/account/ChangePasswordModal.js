@@ -4,27 +4,27 @@ import { useForm } from 'react-hook-form'
 import changePasswordResolver from '../../validations/changePasswordResolver';
 
 export default function ChangePasswordModal({ isOpen, close }) {
-    const { 
-        register, 
-        handleSubmit, 
-        formState: { errors }, 
-        reset 
-    } = useForm({ 
-        resolver: changePasswordResolver 
-    });
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset
+	} = useForm({
+		resolver: changePasswordResolver
+	});
 
-    const onSubmit = (formData) => {
-        alert("Cambiando contraseña")
-    }
+	const onSubmit = (formData) => {
+		alert("Cambiando contraseña")
+	}
 
-    useEffect(() => {
-        if (!isOpen) {
-            reset()
-        }
-    }, [isOpen, reset])
+	useEffect(() => {
+		if (!isOpen) {
+			reset()
+		}
+	}, [isOpen, reset])
 
-    return (
-        <Modal show={isOpen} onHide={close}>
+	return (
+		<Modal show={isOpen} onHide={close}>
 			<Modal.Header closeButton>
 				<Modal.Title>Cambiar contraseña</Modal.Title>
 			</Modal.Header>
@@ -32,18 +32,18 @@ export default function ChangePasswordModal({ isOpen, close }) {
 				<Form onSubmit={handleSubmit(onSubmit)}>
 					<Form.Group>
 						<Form.Label>Nueva contraseña</Form.Label>
-						<Form.Control 
+						<Form.Control
 							type="password"
 							placeholder="Escribe una nueva contraseña"
 							{...register("password")}
 						/>
 						{errors?.password && (
 							<Form.Text>
-							<Alert variant="danger">
-								{errors.password.message}
-							</Alert>
-						</Form.Text>
-							)}
+								<Alert variant="danger">
+									{errors.password.message}
+								</Alert>
+							</Form.Text>
+						)}
 					</Form.Group>
 				</Form>
 			</Modal.Body>
@@ -56,5 +56,5 @@ export default function ChangePasswordModal({ isOpen, close }) {
 				</Button>
 			</Modal.Footer>
 		</Modal>
-    );
+	);
 }

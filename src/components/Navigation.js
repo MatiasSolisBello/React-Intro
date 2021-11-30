@@ -8,6 +8,7 @@ export default function Navigation() {
 
     const { logout } = useAuth();
 
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
