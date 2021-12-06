@@ -6,7 +6,59 @@ import routes from '../helpers/routes';
 
 export default function Navigation() {
 
+    //declaracion
     const { logout } = useAuth();
+    const { user } = useAuth();
+    let menu;
+    let menuRol;
+
+    //verificar login
+    console.log(user)
+
+    //si no existe login => vemos login y registro
+    if (user == null) {
+        menu = (
+            <>
+                <Nav.Link as={NavLink} to={routes.login}>Login</Nav.Link>
+                <Nav.Link as={NavLink} to={routes.register}>Registro</Nav.Link>
+            </>
+        )
+    } else {
+        //si existe login => vemos la cuenta y logout
+        menu = (
+            <>
+                <Nav.Link as={NavLink} to={routes.account}>Cuenta</Nav.Link>
+                <Nav.Link to={routes.account} onClick={logout}>Cerrar Sesion</Nav.Link>
+            </>
+        )
+
+        //verificamos por rol
+        if (user.rol === 'admin') {
+            menuRol = (
+                <>
+                    <Nav.Link as={NavLink} to={routes.usuario}>Usuarios</Nav.Link>
+                    <Nav.Link as={NavLink} to={routes.bodega}>Bodega</Nav.Link>
+                    <Nav.Link>{user.rol}</Nav.Link>
+                </>
+            )
+        } else if (user.rol === 'regular') {
+            menuRol = (
+                <>
+                    <Nav.Link as={NavLink} to={routes.bodega}>Bodega</Nav.Link>
+                    <Nav.Link>{user.rol}</Nav.Link>
+                </>
+            )
+        } else {
+            menuRol = (
+                <>
+
+                </>
+            )
+        }
+    }
+
+
+
 
 
     return (
@@ -25,13 +77,9 @@ export default function Navigation() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
-                        <Nav.Link as={NavLink} to={routes.usuario}>Usuarios</Nav.Link>
                         <Nav.Link as={NavLink} to={routes.producto}>Producto</Nav.Link>
-                        <Nav.Link as={NavLink} to={routes.bodega}>Bodega</Nav.Link>
-                        <Nav.Link as={NavLink} to={routes.login}>Login</Nav.Link>
-                        <Nav.Link as={NavLink} to={routes.register}>Registro</Nav.Link>
-                        <Nav.Link as={NavLink} to={routes.account}>Cuenta</Nav.Link>
-                        <Nav.Link to={routes.account} onClick={logout}>Cerrar Sesion</Nav.Link>
+                        {menuRol}
+                        {menu}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

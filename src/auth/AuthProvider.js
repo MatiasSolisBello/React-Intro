@@ -15,7 +15,7 @@ export default function AuthProvider({ children }) {
             id: 1, 
             nombre: 'John', 
             correo: 'john@email.com',  
-            rol: roles.regular
+            rol: roles.admin
         });
 
         if(fromLocation){

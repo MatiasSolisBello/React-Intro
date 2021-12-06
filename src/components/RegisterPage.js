@@ -1,7 +1,8 @@
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
-import React, { useState, useForm } from "react";
+import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
-import registerResolver from '../validations/registerResolver';
+
+//import registerResolver from '../validations/registerResolver';
 
 export default function RegisterPage() {
     const [rut, setRut] = useState('');
@@ -14,7 +15,7 @@ export default function RegisterPage() {
     //const { register, formState: { errors } } = useForm({ resolver: registerResolver });
 
     const submit = async (e) => {
-        //e.preventDefault();
+        e.preventDefault();
 
         await fetch('http://localhost:5000/api/register', {
             method: 'POST',
