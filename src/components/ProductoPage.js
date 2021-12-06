@@ -1,35 +1,55 @@
-import React from 'react'
-import { Card, Button, Container, Row, Col } from 'react-bootstrap'
-//import axios from 'axios'
-//import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Card, Button, Container, Row } from 'react-bootstrap'
+
 
 export default function ProductoPage() {
+    /*const ProductoList = () => {*/
+    const [data, setProducto] = useState([]);
+    //const navigate = useNavigate();
+
+    const loadProducto = async () => {
+        const response = await fetch("http://localhost:5000/api/producto");
+        const data = await response.json();
+        console.log(data)
+        setProducto(data);
+    };
+
+    useEffect(() => {
+        loadProducto();
+    }, []);
+    //}
+
+
     return (
-        <div>
+        <>
             <br></br>
             <h1 className="text-center">Productos</h1>
 
             <Container>
                 <Row xs={1} md={4} className="g-4">
-                    {Array.from({ length: 8 }).map((_, idx) => (
-                        <Col>
-                            
-                                    <Card>
-                                        <Card.Img variant="top" src="holder.js/100px160" />
-                                        <Card.Body>
-                                            <Card.Title>ddw</Card.Title>
-                                            <Card.Text>
-                                                This is a longer card with supporting text below as a natural
-                                                lead-in to additional content. This content is a little bit longer.
-                                            </Card.Text>
-                                            <Button variant="primary">Go somewhere</Button>
-                                        </Card.Body>
-                                    </Card>
-                                
-                        </Col>
+                    {data.map((pro) => (
+
+                        <Card >
+                            <Card.Img variant="top" src={pro.imagen} />
+                            <Card.Body>
+                                <Card.Title>{pro.nombre}</Card.Title>
+                                <Card.Text>
+                                    {pro.descripcion}
+                                </Card.Text>
+                                <Card.Text>
+                                    ${pro.precio}
+                                </Card.Text>
+                                <Card.Text>
+                                    {pro.stock}
+                                </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
+
+
                     ))}
                 </Row>
             </Container>
-        </div>
-    )
+        </>
+    );
 }
